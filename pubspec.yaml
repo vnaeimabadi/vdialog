@@ -1,8 +1,8 @@
 name: vdialog
 description: Flutter package to show beautiful dialogs with animations as simply as possible.
-version: 0.2.1+4
+version: 0.2.2
 author: vali naeimabadi
-homepage: https://github.com/vnaeimabadi/
+homepage: https://github.com/vnaeimabadi/vdialog
 
 environment:
   sdk: ">=2.1.0 <3.0.0"
