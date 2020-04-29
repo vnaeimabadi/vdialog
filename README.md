@@ -276,4 +276,12 @@ CustomDialog({
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample4.PNG"/>
 
+---
+
+## License & copyright
+
+Vali Naeimabadi, Flutter Developer
+
+License under the [MIT License](LICENSE).
+
 
