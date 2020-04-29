@@ -129,4 +129,62 @@ CustomDialog({
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample2.PNG"/>
 
+## Example .3
+
+```
+    showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (BuildContext ctx) => CustomDialog(
+              title: "Errorssusd",
+              titleContainerWidget: customTitleText(),
+              contentContainerWidget: customContentText(),
+              buttonOne: this._buttonOne,
+              buttonTwo: this._buttonTwo,
+              buttonOneText: "retry",
+              buttonTwoText: "close",
+              content: "server not found!!",
+              showButtonOne: true,
+              showButtonTwo: true,
+              icon: Icons.public,
+              iconBackgroundHexColor: "EF5350",
+              buttonOneBackgroundHexColor: "EF5350",
+              buttonOneTextStyle: TextStyle(color: Colors.white),
+              buttonTwoBackgroundHexColor: "0daa0a",
+              buttonTwoMarginRight: 10,
+              buttonTwoTextStyle: TextStyle(color: Colors.yellow,fontSize: 20),
+            ),
+          );
+
+
+  Widget customTitleText()
+  {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom title",
+        textAlign: TextAlign.end,
+        style: TextStyle(fontSize: 24,),
+      ),
+    );
+  }
+
+
+  Widget customContentText()
+  {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom Content",
+        textAlign: TextAlign.end,
+        style: TextStyle(fontSize: 24,),
+      ),
+    );
+  }
+```
+
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample3.PNG"/>
+
 
