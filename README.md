@@ -10,7 +10,7 @@ To use this package, add vDialog as a dependency in your pubspec.yaml file.
 
 ```
     dependencies:
-      vdialog: ^0.2.1+3
+      vdialog: ^0.2.1+4
 ```
 
 2. import
@@ -186,5 +186,96 @@ CustomDialog({
 ```
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample3.PNG"/>
+
+## Example .4
+
+```
+    showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (BuildContext ctx) => Cdialog(
+              titleContainerWidget: customTitleText(),
+              contentContainerWidget: customContentText(),
+              customButtonOneWidget: customButtonOne(),
+              customButtonTwoWidget: customButtonTwo(),
+              showButtonOne: true,
+              showButtonTwo: false,
+              icon: Icons.settings,
+              iconHexColor: "5E35B1",
+              iconBackgroundHexColor: "EF5350",
+              alignmentIcon: mAlignment.center,
+            ),
+          );
+
+
+  Widget customTitleText() {
+      return Container(
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: Text(
+          "Custom title",
+          textAlign: TextAlign.end,
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
+      );
+    }
+
+    Widget customContentText() {
+      return Container(
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: Text(
+          "Custom Content",
+          textAlign: TextAlign.end,
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
+      );
+    }
+
+    Widget customButtonOne() {
+      return Container(
+        margin: EdgeInsets.only(right: 20),
+        padding: EdgeInsets.all(
+          10,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.yellow,
+        ),
+        child: FlatButton(
+          onPressed: () {
+            loadData();
+            Navigator.of(context).pop(); // To close the dialog
+          },
+          child: Text(
+            "button one",
+          ),
+        ),
+      );
+    }
+
+    Widget customButtonTwo() {
+      return Container(
+        margin: EdgeInsets.only(right: 20),
+        child: FlatButton(
+          color: Colors.red,
+          onPressed: () {
+            loadData();
+            Navigator.of(context).pop(); // To close the dialog
+          },
+          child: Text(
+            "button two",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    }
+```
+
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample4.PNG"/>
 
 

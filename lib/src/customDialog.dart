@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vdialog/src/hexColor.dart';
 
-
 enum mainAlignment { left, right, center }
-
 
 // ignore: must_be_immutable
 class CustomDialog extends StatelessWidget {
@@ -20,6 +18,7 @@ class CustomDialog extends StatelessWidget {
   TextStyle buttonOneTextStyle;
   String buttonOneBackgroundHexColor;
   double buttonOneMarginRight;
+  Container customButtonOneWidget;
 
   String buttonTwoText;
   bool showButtonTwo;
@@ -27,10 +26,9 @@ class CustomDialog extends StatelessWidget {
   TextStyle buttonTwoTextStyle;
   String buttonTwoBackgroundHexColor;
   double buttonTwoMarginRight;
+  Container customButtonTwoWidget;
 
   MainAxisAlignment buttonAlignment;
-
-
 
 //  icon info
   bool showIcon;
@@ -56,12 +54,14 @@ class CustomDialog extends StatelessWidget {
     TextStyle buttonOneTextStyle,
     String buttonOneBackgroundHexColor = "00000000",
     double buttonOneMarginRight = 0,
+    Container customButtonOneWidget,
     bool showButtonTwo = true,
     Function buttonTwo,
     String buttonTwoText = "buttonTwo",
     TextStyle buttonTwoTextStyle,
     String buttonTwoBackgroundHexColor = "00000000",
     double buttonTwoMarginRight = 0,
+    Container customButtonTwoWidget,
     MainAxisAlignment buttonAlignment = MainAxisAlignment.end,
     bool showIcon = true,
     mainAlignment alignmentIcon = mainAlignment.right,
@@ -86,6 +86,7 @@ class CustomDialog extends StatelessWidget {
     this.buttonOneTextStyle = buttonOneTextStyle;
     this.buttonOneBackgroundHexColor = buttonOneBackgroundHexColor;
     this.buttonOneMarginRight = buttonOneMarginRight;
+    this.customButtonOneWidget = customButtonOneWidget;
 
     this.buttonTwo = buttonTwo;
     this.buttonTwoText = buttonTwoText;
@@ -93,6 +94,7 @@ class CustomDialog extends StatelessWidget {
     this.buttonTwoTextStyle = buttonTwoTextStyle;
     this.buttonTwoBackgroundHexColor = buttonTwoBackgroundHexColor;
     this.buttonTwoMarginRight = buttonTwoMarginRight;
+    this.customButtonTwoWidget = customButtonTwoWidget;
 
     this.buttonAlignment = buttonAlignment;
 
@@ -116,7 +118,7 @@ class CustomDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       shape:
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(padding)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(padding)),
       elevation: 0.0,
       backgroundColor: Colors.transparent,
       child: dialogContent(context),
@@ -176,24 +178,28 @@ class CustomDialog extends StatelessWidget {
             mainAxisAlignment: this.buttonAlignment,
             children: <Widget>[
               this.showButtonTwo
-                  ? customButton(
-                context,
-                this.buttonTwo,
-                this.buttonTwoText,
-                this.buttonTwoBackgroundHexColor,
-                this.buttonTwoTextStyle,
-                this.buttonTwoMarginRight,
-              )
+                  ? this.customButtonTwoWidget == null
+                      ? customButton(
+                          context,
+                          this.buttonTwo,
+                          this.buttonTwoText,
+                          this.buttonTwoBackgroundHexColor,
+                          this.buttonTwoTextStyle,
+                          this.buttonTwoMarginRight,
+                        )
+                      : this.customButtonTwoWidget
                   : Container(),
               this.showButtonOne
-                  ? customButton(
-                context,
-                this.buttonOne,
-                this.buttonOneText,
-                this.buttonOneBackgroundHexColor,
-                this.buttonOneTextStyle,
-                this.buttonOneMarginRight,
-              )
+                  ? this.customButtonOneWidget == null
+                      ? customButton(
+                          context,
+                          this.buttonOne,
+                          this.buttonOneText,
+                          this.buttonOneBackgroundHexColor,
+                          this.buttonOneTextStyle,
+                          this.buttonOneMarginRight,
+                        )
+                      : this.customButtonOneWidget
                   : Container(),
             ],
           ),
@@ -202,21 +208,21 @@ class CustomDialog extends StatelessWidget {
     );
   }
 
-  Widget titleAndContent(
-      String text, double fontSite, FontWeight fontWeight, Container textWidget) {
+  Widget titleAndContent(String text, double fontSite, FontWeight fontWeight,
+      Container textWidget) {
     return textWidget != null
         ? textWidget
         : Container(
-      width: double.infinity,
-      alignment: Alignment.topRight,
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: fontSite,
-          fontWeight: fontWeight,
-        ),
-      ),
-    );
+            width: double.infinity,
+            alignment: Alignment.topRight,
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: fontSite,
+                fontWeight: fontWeight,
+              ),
+            ),
+          );
   }
 
   Widget circleIcon(BuildContext context) {
@@ -224,15 +230,15 @@ class CustomDialog extends StatelessWidget {
       left: this.alignment == mainAlignment.center
           ? MediaQuery.of(context).size.width / 2 - this.iconBackgroundHeight
           : this.alignment == mainAlignment.left
-          ? this.iconPositionLeft
-          : this.alignment == mainAlignment.right ? null : null,
+              ? this.iconPositionLeft
+              : this.alignment == mainAlignment.right ? null : null,
       right: this.alignment == mainAlignment.center
           ? null
           : this.alignment == mainAlignment.left
-          ? null
-          : this.alignment == mainAlignment.right
-          ? this.iconPositionRight
-          : null,
+              ? null
+              : this.alignment == mainAlignment.right
+                  ? this.iconPositionRight
+                  : null,
       top: this.iconPositionTop,
       width: this.iconBackgroundWidth,
       height: this.iconBackgroundHeight,
@@ -244,22 +250,21 @@ class CustomDialog extends StatelessWidget {
         child: Icon(
           this.icon,
           size: 50,
-          color: this.showIcon
-              ? HexColor(this.iconHexColor)
-              : Colors.transparent,
+          color:
+              this.showIcon ? HexColor(this.iconHexColor) : Colors.transparent,
         ),
       ),
     );
   }
 
   Widget customButton(
-      BuildContext context,
-      Function function,
-      String buttonText,
-      String buttonBackgroundColor,
-      TextStyle textStyle,
-      double marginRight,
-      ) {
+    BuildContext context,
+    Function function,
+    String buttonText,
+    String buttonBackgroundColor,
+    TextStyle textStyle,
+    double marginRight,
+  ) {
     return Container(
       margin: EdgeInsets.only(right: marginRight),
       child: FlatButton(
