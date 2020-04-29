@@ -73,8 +73,6 @@ CustomDialog({
         );
 ```
 
-## Screenshot
-
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
 
 
