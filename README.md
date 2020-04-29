@@ -56,7 +56,7 @@ CustomDialog({
   })
 ```
 
-## Example .1
+## Example .1 Simple Dialog
 
 ```
     showDialog(
@@ -78,21 +78,19 @@ CustomDialog({
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
 
 
-## Example .2
+## Example .2 customTitleText  and  customContentText and customIcon
 
 ```
     showDialog(
             barrierDismissible: false,
             context: context,
             builder: (BuildContext ctx) => CustomDialog(
-              title: "Errorssusd",
               titleContainerWidget: customTitleText(),
               contentContainerWidget: customContentText(),
               buttonOne: this._buttonOne,
               buttonTwo: this._buttonTwo,
               buttonOneText: "retry",
               buttonTwoText: "close",
-              content: "server not found!!",
               showButtonOne: true,
               showButtonTwo: true,
               icon: Icons.public,
@@ -131,21 +129,19 @@ CustomDialog({
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample2.PNG"/>
 
-## Example .3
+## Example .3 Styling Buttons
 
 ```
     showDialog(
             barrierDismissible: false,
             context: context,
             builder: (BuildContext ctx) => CustomDialog(
-              title: "Errorssusd",
               titleContainerWidget: customTitleText(),
               contentContainerWidget: customContentText(),
               buttonOne: this._buttonOne,
               buttonTwo: this._buttonTwo,
               buttonOneText: "retry",
               buttonTwoText: "close",
-              content: "server not found!!",
               showButtonOne: true,
               showButtonTwo: true,
               icon: Icons.public,
@@ -189,7 +185,7 @@ CustomDialog({
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample3.PNG"/>
 
-## Example .4
+## Example .4  CustomButton's
 
 ```
     showDialog(
