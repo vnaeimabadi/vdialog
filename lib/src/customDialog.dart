@@ -9,9 +9,9 @@ enum mainAlignment { left, right, center }
 class CustomDialog extends StatelessWidget {
   //  title and content
   String title;
-  Text titleTextWidget;
+  Container titleTextWidget;
   String content;
-  Text contentTextWidget;
+  Container contentTextWidget;
 
   //  button
   String buttonOneText;
@@ -47,9 +47,9 @@ class CustomDialog extends StatelessWidget {
 
   CustomDialog({
     String title,
-    Text titleTextWidget,
+    Container titleContainerWidget,
     String content,
-    Text contentTextWidget,
+    Container contentContainerWidget,
     bool showButtonOne = true,
     Function buttonOne,
     String buttonOneText = "buttonOne",
@@ -76,9 +76,9 @@ class CustomDialog extends StatelessWidget {
     String iconHexColor = "D32F2F",
   }) {
     this.title = title;
-    this.titleTextWidget = titleTextWidget;
+    this.titleTextWidget = titleContainerWidget;
     this.content = content;
-    this.contentTextWidget = contentTextWidget;
+    this.contentTextWidget = contentContainerWidget;
 
     this.buttonOne = buttonOne;
     this.buttonOneText = buttonOneText;
@@ -203,7 +203,7 @@ class CustomDialog extends StatelessWidget {
   }
 
   Widget titleAndContent(
-      String text, double fontSite, FontWeight fontWeight, Text textWidget) {
+      String text, double fontSite, FontWeight fontWeight, Container textWidget) {
     return textWidget != null
         ? textWidget
         : Container(

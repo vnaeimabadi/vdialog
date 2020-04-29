@@ -10,7 +10,7 @@ To use this package, add vDialog as a dependency in your pubspec.yaml file.
 
 ```
     dependencies:
-      vdialog: ^0.2.1+2
+      vdialog: ^0.2.1+3
 ```
 
 2. import
