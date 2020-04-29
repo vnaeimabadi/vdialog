@@ -10,7 +10,7 @@ To use this package, add vDialog as a dependency in your pubspec.yaml file.
 
 ```
     dependencies:
-      vdialog: ^0.2.1+1
+      vdialog: ^0.2.1+2
 ```
 
 2. import
@@ -40,6 +40,6 @@ To use this package, add vDialog as a dependency in your pubspec.yaml file.
 
 ## Screenshot
 
-<img src="sample.PNG"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
 
 
