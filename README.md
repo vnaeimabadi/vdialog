@@ -76,7 +76,7 @@ CustomDialog({
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
 
 
-## Example .1
+## Example .2
 
 ```
     showDialog(
