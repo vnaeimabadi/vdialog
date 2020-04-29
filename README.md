@@ -54,7 +54,7 @@ CustomDialog({
   })
 ```
 
-## Example
+## Example .1
 
 ```
     showDialog(
@@ -74,5 +74,59 @@ CustomDialog({
 ```
 
 <img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
+
+
+## Example .1
+
+```
+    showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (BuildContext ctx) => CustomDialog(
+              title: "Errorssusd",
+              titleContainerWidget: customTitleText(),
+              contentContainerWidget: customContentText(),
+              buttonOne: this._buttonOne,
+              buttonTwo: this._buttonTwo,
+              buttonOneText: "retry",
+              buttonTwoText: "close",
+              content: "server not found!!",
+              showButtonOne: true,
+              showButtonTwo: true,
+              icon: Icons.public,
+              iconBackgroundHexColor: "EF5350",
+            ),
+          );
+
+
+  Widget customTitleText()
+  {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom title",
+        textAlign: TextAlign.end,
+        style: TextStyle(fontSize: 24,),
+      ),
+    );
+  }
+
+
+  Widget customContentText()
+  {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom Content",
+        textAlign: TextAlign.end,
+        style: TextStyle(fontSize: 24,),
+      ),
+    );
+  }
+```
+
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample2.PNG"/>
 
 
