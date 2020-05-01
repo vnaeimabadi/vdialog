@@ -36,14 +36,20 @@ class _MyAppState extends State<MyApp> {
       barrierDismissible: false,
       context: context,
       builder: (BuildContext ctx) => CustomDialog(
-        title: "Error",
-        buttonOne: this._buttonOne,
-        buttonTwo: this._buttonTwo,
-        buttonOneText: "retry",
-        buttonTwoText: "close",
-        content: "server not found!!",
+        titleContainerWidget: customTitleText(),
+        contentContainerWidget: customContentText(),
+        customButtonOneWidget: customButtonOne(),
+        customButtonTwoWidget: customButtonTwo(),
         showButtonOne: true,
         showButtonTwo: true,
+        icon: Icons.settings,
+        iconHexColor: "5E35B1",
+        iconBackgroundHexColor: "EF5350",
+        alignmentIcon: mainAlignment.center,
+        haveAnimation: true,
+        animationsType: mAnimations.slide,
+        slideInTypes: SlideInTypes.SlideInBottom,
+        animationMilliseconds: 500,
       ),
     );
   }
@@ -52,13 +58,81 @@ class _MyAppState extends State<MyApp> {
     //this is data function!
   }
 
+
   void _buttonOne() {
     loadData();
   }
 
   void _buttonTwo() {
-    //this will close app
     SystemNavigator.pop();
+//    Navigator.of(context).pop();
+  }
+
+  Widget customTitleText() {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom title",
+        textAlign: TextAlign.end,
+        style: TextStyle(
+          fontSize: 24,
+        ),
+      ),
+    );
+  }
+
+  Widget customContentText() {
+    return Container(
+      width: double.infinity,
+      alignment: Alignment.center,
+      child: Text(
+        "Custom Content",
+        textAlign: TextAlign.end,
+        style: TextStyle(
+          fontSize: 24,
+        ),
+      ),
+    );
+  }
+
+  Widget customButtonOne() {
+    return Container(
+      margin: EdgeInsets.only(right: 20),
+      padding: EdgeInsets.all(
+        10,
+      ),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        color: Colors.yellow,
+      ),
+      child: FlatButton(
+        onPressed: () {
+          loadData();
+          Navigator.of(context).pop(); // To close the dialog
+        },
+        child: Text(
+          "button one",
+        ),
+      ),
+    );
+  }
+
+  Widget customButtonTwo() {
+    return Container(
+      margin: EdgeInsets.only(right: 20),
+      child: FlatButton(
+        color: Colors.red,
+        onPressed: () {
+          loadData();
+          Navigator.of(context).pop(); // To close the dialog
+        },
+        child: Text(
+          "button two",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
   }
 }
 

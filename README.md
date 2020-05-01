@@ -75,7 +75,7 @@ CustomDialog({
         );
 ```
 
-<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample.PNG" width="250"/>
 
 
 ## Example .2 customTitleText  and  customContentText and customIcon
@@ -127,7 +127,7 @@ CustomDialog({
   }
 ```
 
-<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample2.PNG"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample2.PNG" width="250"/>
 
 ## Example .3 Styling Buttons
 
@@ -183,7 +183,7 @@ CustomDialog({
   }
 ```
 
-<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample3.PNG"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample3.PNG" width="250"/>
 
 ## Example .4  CustomButton's
 
@@ -274,7 +274,105 @@ CustomDialog({
     }
 ```
 
-<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample4.PNG"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/sample4.PNG" width="250"/>
+
+---
+
+
+## Example .4  Slide in animation
+
+```
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext ctx) => Cdialog(
+          titleContainerWidget: customTitleText(),
+          contentContainerWidget: customContentText(),
+          customButtonOneWidget: customButtonOne(),
+          customButtonTwoWidget: customButtonTwo(),
+          showButtonOne: true,
+          showButtonTwo: true,
+          icon: Icons.settings,
+          iconHexColor: "5E35B1",
+          iconBackgroundHexColor: "EF5350",
+          alignmentIcon: mainAlignment.center,
+          haveAnimation: true,
+          animationsType: mAnimations.slide,
+          slideInTypes: SlideInTypes.SlideInBottom,
+          animationMilliseconds: 500,
+        ),
+      );
+
+
+  Widget customTitleText() {
+      return Container(
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: Text(
+          "Custom title",
+          textAlign: TextAlign.end,
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
+      );
+    }
+
+    Widget customContentText() {
+      return Container(
+        width: double.infinity,
+        alignment: Alignment.center,
+        child: Text(
+          "Custom Content",
+          textAlign: TextAlign.end,
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
+      );
+    }
+
+    Widget customButtonOne() {
+      return Container(
+        margin: EdgeInsets.only(right: 20),
+        padding: EdgeInsets.all(
+          10,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(40),
+          color: Colors.yellow,
+        ),
+        child: FlatButton(
+          onPressed: () {
+            loadData();
+            Navigator.of(context).pop(); // To close the dialog
+          },
+          child: Text(
+            "button one",
+          ),
+        ),
+      );
+    }
+
+    Widget customButtonTwo() {
+      return Container(
+        margin: EdgeInsets.only(right: 20),
+        child: FlatButton(
+          color: Colors.red,
+          onPressed: () {
+            loadData();
+            Navigator.of(context).pop(); // To close the dialog
+          },
+          child: Text(
+            "button two",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      );
+    }
+```
+
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/slideinbottom.gif" width="250"/>
 
 ---
 
