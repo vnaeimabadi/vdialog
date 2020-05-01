@@ -372,7 +372,7 @@ CustomDialog({
     }
 ```
 
-<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/slideinbottom.gif" width="250"/>
+<img src="https://raw.githubusercontent.com/vnaeimabadi/vdialog/master/slidein.gif" width="250"/>
 
 ---
 
