@@ -1,3 +1,7 @@
-## [0.0.1] - TODO: Add release date.
+## 0.2.3 - 2020-05-01
 
-* TODO: Describe initial release.
+* Added Animations.
+
+## 0.2.2+2 - 2020-04-29
+
+* initial release.
