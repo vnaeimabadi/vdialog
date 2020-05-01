@@ -19,6 +19,7 @@ enum SlideOutTypes {
   SlideOutBottomRight,
   SlideOutTopLeft,
 }
+
 // ignore: must_be_immutable
 class CustomDialog extends StatefulWidget {
   //  title and content
@@ -214,13 +215,13 @@ class _CustomDialogState extends State<CustomDialog>
         case SlideInTypes.SlideInBottom:
           {
             this.widget.startOffset = Offset(0.0, 1.0);
-            this.widget.endOffset =  Offset.zero;
+            this.widget.endOffset = Offset.zero;
           }
           break;
         case SlideInTypes.SlideInTop:
           {
-            this.widget.startOffset =Offset(0.0, -1.0);
-            this.widget.endOffset =  Offset.zero;
+            this.widget.startOffset = Offset(0.0, -1.0);
+            this.widget.endOffset = Offset.zero;
           }
           break;
 
@@ -232,8 +233,8 @@ class _CustomDialogState extends State<CustomDialog>
           break;
         case SlideInTypes.SlideInLeft:
           {
-            this.widget.startOffset =  Offset(-1.0, 0.0);
-            this.widget.endOffset =Offset.zero;
+            this.widget.startOffset = Offset(-1.0, 0.0);
+            this.widget.endOffset = Offset.zero;
           }
           break;
 
@@ -262,19 +263,16 @@ class _CustomDialogState extends State<CustomDialog>
         duration: Duration(milliseconds: this.widget.animationMilliseconds));
     customAnimation = CurvedAnimation(
         parent: controller, curve: this.widget.curveAnimationType);
-    if(this.widget.animationsType==mAnimations.slide)
-    {
-      if(this.widget.slideOutTypes==null && this.widget.slideInTypes==null)
-      {
-        this.widget.animationsType=mAnimations.scale;
-      }
-      else{
+    if (this.widget.animationsType == mAnimations.slide) {
+      if (this.widget.slideOutTypes == null &&
+          this.widget.slideInTypes == null) {
+        this.widget.animationsType = mAnimations.scale;
+      } else {
         offset = Tween<Offset>(
-            begin: this.widget.startOffset, end: this.widget.endOffset)
+                begin: this.widget.startOffset, end: this.widget.endOffset)
             .animate(controller);
       }
     }
-
 
     scaleAnimation = new Tween(
       begin: 0.5,
@@ -292,21 +290,21 @@ class _CustomDialogState extends State<CustomDialog>
   Widget build(BuildContext context) {
     return this.widget.haveAnimation
         ? mAnimations.scale == this.widget.animationsType
-        ? ScaleTransition(
-      scale: scaleAnimation,
-      child: mainDialog(),
-    )
-        : mAnimations.fade == this.widget.animationsType
-        ? FadeTransition(
-      opacity: customAnimation,
-      child: mainDialog(),
-    )
-        : mAnimations.slide == this.widget.animationsType
-        ? SlideTransition(
-      position: offset,
-      child: mainDialog(),
-    )
-        : mainDialog()
+            ? ScaleTransition(
+                scale: scaleAnimation,
+                child: mainDialog(),
+              )
+            : mAnimations.fade == this.widget.animationsType
+                ? FadeTransition(
+                    opacity: customAnimation,
+                    child: mainDialog(),
+                  )
+                : mAnimations.slide == this.widget.animationsType
+                    ? SlideTransition(
+                        position: offset,
+                        child: mainDialog(),
+                      )
+                    : mainDialog()
         : mainDialog();
   }
 
@@ -374,27 +372,27 @@ class _CustomDialogState extends State<CustomDialog>
             children: <Widget>[
               this.widget.showButtonTwo
                   ? this.widget.customButtonTwoWidget == null
-                  ? customButton(
-                context,
-                this.widget.buttonTwo,
-                this.widget.buttonTwoText,
-                this.widget.buttonTwoBackgroundHexColor,
-                this.widget.buttonTwoTextStyle,
-                this.widget.buttonTwoMarginRight,
-              )
-                  : this.widget.customButtonTwoWidget
+                      ? customButton(
+                          context,
+                          this.widget.buttonTwo,
+                          this.widget.buttonTwoText,
+                          this.widget.buttonTwoBackgroundHexColor,
+                          this.widget.buttonTwoTextStyle,
+                          this.widget.buttonTwoMarginRight,
+                        )
+                      : this.widget.customButtonTwoWidget
                   : Container(),
               this.widget.showButtonOne
                   ? this.widget.customButtonOneWidget == null
-                  ? customButton(
-                context,
-                this.widget.buttonOne,
-                this.widget.buttonOneText,
-                this.widget.buttonOneBackgroundHexColor,
-                this.widget.buttonOneTextStyle,
-                this.widget.buttonOneMarginRight,
-              )
-                  : this.widget.customButtonOneWidget
+                      ? customButton(
+                          context,
+                          this.widget.buttonOne,
+                          this.widget.buttonOneText,
+                          this.widget.buttonOneBackgroundHexColor,
+                          this.widget.buttonOneTextStyle,
+                          this.widget.buttonOneMarginRight,
+                        )
+                      : this.widget.customButtonOneWidget
                   : Container(),
             ],
           ),
@@ -408,33 +406,33 @@ class _CustomDialogState extends State<CustomDialog>
     return textWidget != null
         ? textWidget
         : Container(
-      width: double.infinity,
-      alignment: Alignment.topRight,
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: fontSite,
-          fontWeight: fontWeight,
-        ),
-      ),
-    );
+            width: double.infinity,
+            alignment: Alignment.topRight,
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: fontSite,
+                fontWeight: fontWeight,
+              ),
+            ),
+          );
   }
 
   Widget circleIcon(BuildContext context) {
     return Positioned(
       left: this.widget.alignment == mainAlignment.center
           ? MediaQuery.of(context).size.width / 2 -
-          this.widget.iconBackgroundHeight
+              this.widget.iconBackgroundHeight
           : this.widget.alignment == mainAlignment.left
-          ? this.widget.iconPositionLeft
-          : this.widget.alignment == mainAlignment.right ? null : null,
+              ? this.widget.iconPositionLeft
+              : this.widget.alignment == mainAlignment.right ? null : null,
       right: this.widget.alignment == mainAlignment.center
           ? null
           : this.widget.alignment == mainAlignment.left
-          ? null
-          : this.widget.alignment == mainAlignment.right
-          ? this.widget.iconPositionRight
-          : null,
+              ? null
+              : this.widget.alignment == mainAlignment.right
+                  ? this.widget.iconPositionRight
+                  : null,
       top: this.widget.iconPositionTop,
       width: this.widget.iconBackgroundWidth,
       height: this.widget.iconBackgroundHeight,
@@ -455,13 +453,13 @@ class _CustomDialogState extends State<CustomDialog>
   }
 
   Widget customButton(
-      BuildContext context,
-      Function function,
-      String buttonText,
-      String buttonBackgroundColor,
-      TextStyle textStyle,
-      double marginRight,
-      ) {
+    BuildContext context,
+    Function function,
+    String buttonText,
+    String buttonBackgroundColor,
+    TextStyle textStyle,
+    double marginRight,
+  ) {
     return Container(
       margin: EdgeInsets.only(right: marginRight),
       child: FlatButton(
@@ -478,4 +476,3 @@ class _CustomDialogState extends State<CustomDialog>
     );
   }
 }
-
